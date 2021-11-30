@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Sembahyang</string>
+    <string name="al_quran">Al-Quran</string>
+    <string name="jadwal_sholat">Jadwal Sholat</string>
+    <string name="surah_al_quran">Surah Al-Quran</string>
+    <string name="arabic">Arabic</string>
+    <string name="alquran_diturunkan">Makkah</string>
+    <string name="jumlah_ayat">7</string>
+    <string name="alquran">Alquran</string>
 </resources>
