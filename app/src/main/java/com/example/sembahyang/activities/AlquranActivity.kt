@@ -8,6 +8,7 @@ import com.example.sembahyang.adapter.AlquranAdapter
 import com.example.sembahyang.databinding.ActivityAlquranBinding
 import com.example.sembahyang.model.ModelSurah
 import com.example.sembahyang.viewmodel.SurahViewModel
+import org.jetbrains.anko.startActivity
 
 class AlquranActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAlquranBinding
@@ -35,7 +36,18 @@ class AlquranActivity : AppCompatActivity() {
         binding.rvSurah.setHasFixedSize(true)
         binding.rvSurah.adapter = alquranAdapter
         getDataSurah()
+        onActions()
 
+    }
+
+    private fun onActions() {
+        let {
+            alquranAdapter.onClick { surah ->
+                startActivity<DetailAlquranActivity>(
+                    DetailAlquranActivity.EXTRA_SURAH to surah
+                )
+            }
+        }
     }
 
     private fun getDataSurah() {

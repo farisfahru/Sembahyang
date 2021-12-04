@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sembahyang">
-        <activity android:name=".activities.AlquranActivity"></activity>
+        <activity android:name=".activities.DetailAlquranActivity"></activity>
+        <activity android:name=".activities.AlquranActivity" />
         <activity android:name=".activities.JadwalSholatActivity" />
         <activity
             android:name=".activities.MainActivity"
