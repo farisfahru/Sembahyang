@@ -9,6 +9,7 @@
     <string name="alquran">Alquran</string>
     <string name="button_back">Button Back</string>
 
+
     <string name="sholat_subuh">Subuh</string>
     <string name="sholat_dzuhur">Dzuhur</string>
     <string name="sholat_ashar">Ashar</string>
@@ -18,4 +19,5 @@
     <string name="wib">WIB</string>
     <string name="date_sholat">11 November 2021</string>
     <string name="jadwal_waktu_sholat">Jadwal Waktu Sholat</string>
+
 </resources>
