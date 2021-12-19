@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.sembahyang.api.ApiService
+import com.example.sembahyang.model.AyatResponse
 import com.example.sembahyang.model.ModelAyat
 import retrofit2.Call
 import retrofit2.Callback
@@ -15,22 +16,25 @@ class AyatViewModel : ViewModel() {
         private val TAG = AyatViewModel::class.java.simpleName
     }
 
-    private val listAyat = MutableLiveData<ArrayList<ModelAyat>>()
+    private val listAyat = MutableLiveData<MutableList<ModelAyat>>()
 
     fun setDetailSurah(nomor: String?) {
         nomor?.let {
             ApiService.getQuran()
                 .getDetailSurah(it)
-                .enqueue(object : Callback<ArrayList<ModelAyat>> {
+                .enqueue(object : Callback<AyatResponse> {
                     override fun onResponse(
-                        call: Call<ArrayList<ModelAyat>>,
-                        response: Response<ArrayList<ModelAyat>>
+                        call: Call<AyatResponse>,
+                        response: Response<AyatResponse>
                     ) {
-                        val items: ArrayList<ModelAyat> = ArrayList(response.body())
-                        listAyat.postValue(items)
+                        if (response.isSuccessful) {
+                            listAyat.postValue(response.body()?.ayat)
+                        }  else {
+                            Log.e(TAG, "onFailure: ${response.message()}")
+                        }
                     }
 
-                    override fun onFailure(call: Call<ArrayList<ModelAyat>>, t: Throwable) {
+                    override fun onFailure(call: Call<AyatResponse>, t: Throwable) {
                         Log.d(TAG, "failure : ${t.message.toString()}")
                     }
 
@@ -38,7 +42,7 @@ class AyatViewModel : ViewModel() {
         }
     }
 
-    fun getDetailSurah() : LiveData<ArrayList<ModelAyat>> = listAyat
+    fun getDetailSurah() : LiveData<MutableList<ModelAyat>> = listAyat
 
 
 }
