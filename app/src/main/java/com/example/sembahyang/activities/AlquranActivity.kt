@@ -96,7 +96,6 @@ class AlquranActivity : AppCompatActivity(), SearchView.OnQueryTextListener{
 
     private fun hideLoading() {
         binding.loadingProgress.hide()
-        binding
     }
 
     private fun View.gone() {

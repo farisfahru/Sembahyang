@@ -7,7 +7,7 @@ class ApiService {
     companion object {
         fun getQuran(): ApiInterface {
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://api.npoint.io/")
+                .baseUrl("https://equran.id/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             return retrofit.create(ApiInterface::class.java)
