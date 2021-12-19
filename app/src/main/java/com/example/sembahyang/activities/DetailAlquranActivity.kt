@@ -13,6 +13,7 @@ class DetailAlquranActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailAlquranBinding
     private lateinit var detailAlquranAdapter: DetailAlquranAdapter
     private lateinit var ayatViewModel: AyatViewModel
+
     private var bundle: Bundle? = null
 
 
@@ -20,9 +21,7 @@ class DetailAlquranActivity : AppCompatActivity() {
         const val EXTRA_SURAH = "extra_surah"
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         binding = ActivityDetailAlquranBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -35,16 +34,15 @@ class DetailAlquranActivity : AppCompatActivity() {
         val layoutManager = LinearLayoutManager(this)
         binding.rvSurah.layoutManager = layoutManager
         binding.rvSurah.adapter = detailAlquranAdapter
-
         sendBundle()
         getDataAyat()
-        onActions()
-
+        onAction()
     }
 
     private fun sendBundle() {
         val surah = intent?.getParcelableExtra<ModelSurah>(EXTRA_SURAH) as ModelSurah
         bundle?.putString(EXTRA_SURAH, surah.nama)
+
     }
 
     private fun getDataAyat() {
@@ -57,13 +55,12 @@ class DetailAlquranActivity : AppCompatActivity() {
                     if (dataAyat != null) {
                         with(binding) {
                             showLoading()
-                            tvDetailTitle.text = surah.nama
-                            tvSurah.text = surah.asma
+                            tvDetailTitle.text = surah.nama_latin
+                            tvSurah.text = surah.nama
                             detailAlquranAdapter.ayat = dataAyat
                             rvSurah.adapter = detailAlquranAdapter
                             binding.rvSurah.setHasFixedSize(true)
                             hideLoading()
-
                         }
                     }
                 }
@@ -71,7 +68,7 @@ class DetailAlquranActivity : AppCompatActivity() {
         }
     }
 
-    private fun onActions(){
+    private fun onAction() {
         with(binding) {
             btnBack.setOnClickListener {
                 finish()
