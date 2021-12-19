@@ -6,12 +6,15 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class ModelAyat(
-    @SerializedName("ar")
-    var arab: String? = null,
-
     @SerializedName("id")
-    var terjemahan: String? = null,
+    var id: String? = null,
 
     @SerializedName("nomor")
-    var nomor: String? = null
+    var nomor: String? = null,
+
+    @SerializedName("ar")
+    var ar: String? = null,
+
+    @SerializedName("idn")
+    var idn: String? = null
 ) : Parcelable
