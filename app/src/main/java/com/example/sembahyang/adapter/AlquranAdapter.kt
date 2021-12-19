@@ -35,10 +35,10 @@ class AlquranAdapter : RecyclerView.Adapter<AlquranAdapter.ViewHolder>(), Filter
         fun bind(surah: ModelSurah) {
             with(binding) {
                 tvNumber.text = surah.nomor
-                tvSurah.text = surah.nama
-                tvArabic.text = surah.asma
-                tvKeterangan.text = surah.type
-                tvJmlAyat.text = " | ${surah.ayat} Ayat"
+                tvSurah.text = surah.nama_latin
+                tvArabic.text = surah.nama
+                tvKeterangan.text = surah.tempat_turun
+                tvJmlAyat.text = " | ${surah.jumlah_ayat} Ayat"
 
 
             }
@@ -77,11 +77,11 @@ class AlquranAdapter : RecyclerView.Adapter<AlquranAdapter.ViewHolder>(), Filter
                     val filteredList = ArrayList<ModelSurah>()
                     for (i in surahList) {
                         when {
-                            i.nama.lowercase(Locale.ROOT)
+                            i.nama_latin.lowercase(Locale.ROOT)
                                 .contains(charString.lowercase(Locale.ROOT)) -> {
                                 filteredList.add(i)
                             }
-                            i.nama.uppercase(Locale.ROOT).contains(charString.uppercase(Locale.ROOT)) -> {
+                            i.nama_latin.uppercase(Locale.ROOT).contains(charString.uppercase(Locale.ROOT)) -> {
                                 filteredList.add(i)
                             }
                             i.nomor!!.contains(constraint.toString()) -> {
