@@ -29,7 +29,7 @@ class AyatViewModel : ViewModel() {
                     ) {
                         if (response.isSuccessful) {
                             listAyat.postValue(response.body()?.ayat)
-                        }  else {
+                        } else {
                             Log.e(TAG, "onFailure: ${response.message()}")
                         }
                     }
@@ -42,7 +42,7 @@ class AyatViewModel : ViewModel() {
         }
     }
 
-    fun getDetailSurah() : LiveData<MutableList<ModelAyat>> = listAyat
+    fun getDetailSurah(): LiveData<MutableList<ModelAyat>> = listAyat
 
 
 }

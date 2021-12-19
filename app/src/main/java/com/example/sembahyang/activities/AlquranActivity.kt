@@ -13,9 +13,9 @@ import com.example.sembahyang.model.ModelSurah
 import com.example.sembahyang.viewmodel.SurahViewModel
 import org.jetbrains.anko.startActivity
 
-class AlquranActivity : AppCompatActivity(), SearchView.OnQueryTextListener{
+class AlquranActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     private lateinit var binding: ActivityAlquranBinding
-    private lateinit var alquranAdapter : AlquranAdapter
+    private lateinit var alquranAdapter: AlquranAdapter
     private lateinit var surahViewModel: SurahViewModel
 
     companion object {
@@ -29,7 +29,10 @@ class AlquranActivity : AppCompatActivity(), SearchView.OnQueryTextListener{
         setContentView(binding.root)
 
         alquranAdapter = AlquranAdapter()
-        surahViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[SurahViewModel::class.java]
+        surahViewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        )[SurahViewModel::class.java]
 
         val layoutManager = LinearLayoutManager(this)
         binding.rvSurah.layoutManager = layoutManager
@@ -45,8 +48,8 @@ class AlquranActivity : AppCompatActivity(), SearchView.OnQueryTextListener{
         showLoading()
         val surah = intent.getParcelableExtra<ModelSurah>(EXTRA_SURAH).toString()
         surahViewModel.setSurah(surah)
-        surahViewModel.getSurah().observe(this){
-            if (it != null ){
+        surahViewModel.getSurah().observe(this) {
+            if (it != null) {
                 alquranAdapter.addData(it)
                 alquranAdapter.notifyDataSetChanged()
                 binding.rvSurah.adapter = alquranAdapter
@@ -75,7 +78,7 @@ class AlquranActivity : AppCompatActivity(), SearchView.OnQueryTextListener{
                 false
             }
 
-            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     alquranAdapter.filter.filter(query)
                     return false
@@ -115,7 +118,6 @@ class AlquranActivity : AppCompatActivity(), SearchView.OnQueryTextListener{
         alquranAdapter.filter.filter(newText)
         return true
     }
-
 
 
 }

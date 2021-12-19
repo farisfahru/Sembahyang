@@ -81,7 +81,8 @@ class AlquranAdapter : RecyclerView.Adapter<AlquranAdapter.ViewHolder>(), Filter
                                 .contains(charString.lowercase(Locale.ROOT)) -> {
                                 filteredList.add(i)
                             }
-                            i.nama_latin.uppercase(Locale.ROOT).contains(charString.uppercase(Locale.ROOT)) -> {
+                            i.nama_latin.uppercase(Locale.ROOT)
+                                .contains(charString.uppercase(Locale.ROOT)) -> {
                                 filteredList.add(i)
                             }
                             i.nomor!!.contains(constraint.toString()) -> {
