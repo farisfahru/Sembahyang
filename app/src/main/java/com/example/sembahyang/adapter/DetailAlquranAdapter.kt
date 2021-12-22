@@ -1,5 +1,6 @@
 package com.example.sembahyang.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -43,6 +44,11 @@ class DetailAlquranAdapter : RecyclerView.Adapter<DetailAlquranAdapter.ViewHolde
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(ayat[position], listener)
+        if (position % 2 == 0) {
+            holder.itemView.setBackgroundColor(Color.parseColor("#4FCCB154"))
+        } else {
+            holder.itemView.setBackgroundColor(Color.parseColor("#33CCB154"))
+        }
     }
 
     override fun getItemCount(): Int = ayat.size

@@ -2,8 +2,10 @@ package com.example.sembahyang.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sembahyang.R
 import com.example.sembahyang.adapter.DetailAlquranAdapter
 import com.example.sembahyang.databinding.ActivityDetailAlquranBinding
 import com.example.sembahyang.model.ModelSurah
@@ -25,6 +27,8 @@ class DetailAlquranActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailAlquranBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportActionBar?.elevation = 0f
 
         detailAlquranAdapter = DetailAlquranAdapter()
         ayatViewModel = ViewModelProvider(
@@ -56,7 +60,11 @@ class DetailAlquranActivity : AppCompatActivity() {
                         with(binding) {
                             showLoading()
                             tvDetailTitle.text = surah.nama_latin
-                            tvSurah.text = surah.nama
+                            tvSurah.text = surah.nama_latin
+                            tvArti.text = surah.arti
+                            tvTurun.text = surah.tempat_turun
+                            tvJumlahAyat.text = (resources.getString(R.string.jumlah_ayat, surah.jumlah_ayat))
+                            header.visibility = View.VISIBLE
                             detailAlquranAdapter.ayat = dataAyat
                             rvSurah.adapter = detailAlquranAdapter
                             binding.rvSurah.setHasFixedSize(true)

@@ -5,7 +5,7 @@
     <string name="surah_al_quran">Surah Al-Quran</string>
     <string name="arabic">Arabic</string>
     <string name="alquran_diturunkan">Makkah</string>
-    <string name="jumlah_ayat">7</string>
+    <string name="jumlah_ayat">%s Ayat</string>
     <string name="alquran">Alquran</string>
     <string name="button_back">Button Back</string>
 
@@ -19,5 +19,11 @@
     <string name="wib">WIB</string>
     <string name="date_sholat">11 November 2021</string>
     <string name="jadwal_waktu_sholat">Jadwal Waktu Sholat</string>
+    <string name="border">Border</string>
+    <string name="tempat_turun">Mekkah</string>
+    <string name="ayat_doa">Ayat Doa</string>
+    <string name="terjemahan">Terjemahan</string>
+    <string name="nama_doa">Nama Doa</string>
+    <string name="doa_doa_harian">Doa Doa Harian</string>
 
 </resources>
