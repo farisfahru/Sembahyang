@@ -7,9 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorPrimary">#197A79</color>
+    <color name="colorPrimary">#BFCCB154</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="celadon_green">#197A79</color>
     <color name="vegas_gold">#CCB154</color>
     <color name="gold_soft">#33CCB154</color>
+    <color name="urobilin">#DEAE19</color>
 </resources>
