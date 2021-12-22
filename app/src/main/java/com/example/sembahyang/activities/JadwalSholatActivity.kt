@@ -49,6 +49,8 @@ class JadwalSholatActivity : AppCompatActivity(), View.OnClickListener, DatePick
         //get data kota
         getDataKota()
 
+        onAction()
+
         return
 
     }
@@ -149,6 +151,14 @@ class JadwalSholatActivity : AppCompatActivity(), View.OnClickListener, DatePick
             task.execute(url)
         } catch (e: Exception) {
             e.printStackTrace()
+        }
+    }
+
+    private fun onAction() {
+        with(binding) {
+            btnBack.setOnClickListener {
+                finish()
+            }
         }
     }
 
