@@ -28,6 +28,9 @@ class AlquranActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         binding = ActivityAlquranBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.elevation = 0f
+
+
         alquranAdapter = AlquranAdapter()
         surahViewModel = ViewModelProvider(
             this,
