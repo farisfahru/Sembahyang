@@ -2,7 +2,7 @@ package com.example.sembahyang.api
 
 
 import com.example.sembahyang.model.AyatResponse
-import com.example.sembahyang.model.ModelAyat
+import com.example.sembahyang.model.ModelDoa
 import com.example.sembahyang.model.ModelSurah
 import retrofit2.Call
 import retrofit2.http.GET
@@ -16,4 +16,7 @@ interface ApiInterface {
     fun getDetailSurah(
         @Path("nomor") nomor: String
     ): Call<AyatResponse>
+
+    @GET("api")
+    fun getListDoa(): Call<ArrayList<ModelDoa>>
 }

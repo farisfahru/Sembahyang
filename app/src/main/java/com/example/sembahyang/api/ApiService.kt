@@ -12,5 +12,13 @@ class ApiService {
                 .build()
             return retrofit.create(ApiInterface::class.java)
         }
+
+        fun getDoa(): ApiInterface {
+            val retrofit = Retrofit.Builder()
+                .baseUrl("https://doa-doa-api-ahmadramadhan.fly.dev/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+            return retrofit.create(ApiInterface::class.java)
+        }
     }
 }
