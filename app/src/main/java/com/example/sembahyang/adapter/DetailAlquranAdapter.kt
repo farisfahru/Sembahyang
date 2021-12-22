@@ -48,7 +48,6 @@ class DetailAlquranAdapter : RecyclerView.Adapter<DetailAlquranAdapter.ViewHolde
             holder.itemView.setBackgroundColor(Color.parseColor("#4FCCB154"))
         } else {
             holder.itemView.setBackgroundColor(Color.parseColor("#33CCB154"))
-
         }
     }
 
