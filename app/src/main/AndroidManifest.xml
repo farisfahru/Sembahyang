@@ -13,7 +13,9 @@
         android:theme="@style/Theme.Sembahyang">
         <activity android:name=".activities.DetailAlquranActivity"/>
         <activity android:name=".activities.AlquranActivity" />
-        <activity android:name=".activities.JadwalSholatActivity" />
+        <activity
+            android:name=".activities.JadwalSholatActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities.MainActivity"
             android:exported="true">
