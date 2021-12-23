@@ -58,4 +58,16 @@ class MainActivityTest {
         Espresso.onView(withId(R.id.tv_arti)).check(matches(withText(arti)))
 
     }
+
+    @Test
+    fun loadJadwal() {
+        Espresso.onView(withId(R.id.cv_jadwal_sholat)).perform(click())
+        Espresso.onView(checkNotNull(withId(R.id.tv_date)))
+        Espresso.onView(checkNotNull(withId(R.id.rl_spin)))
+        Espresso.onView(checkNotNull(withId(R.id.tv_subuh)))
+        Espresso.onView(checkNotNull(withId(R.id.tv_dzuhur)))
+        Espresso.onView(checkNotNull(withId(R.id.tv_ashar)))
+        Espresso.onView(checkNotNull(withId(R.id.tv_maghrib)))
+        Espresso.onView(checkNotNull(withId(R.id.tv_isya)))
+    }
 }
