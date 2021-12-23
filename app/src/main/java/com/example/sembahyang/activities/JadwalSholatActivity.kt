@@ -16,8 +16,7 @@ import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 
-class JadwalSholatActivity : AppCompatActivity(), View.OnClickListener,
-    DatePickerFragment.DialogDateListener {
+class JadwalSholatActivity : AppCompatActivity(), View.OnClickListener, DatePickerFragment.DialogDateListener {
 
     private lateinit var binding: ActivityJadwalSholatBinding
     private lateinit var listModelKota: MutableList<ModelKota>
@@ -37,11 +36,16 @@ class JadwalSholatActivity : AppCompatActivity(), View.OnClickListener,
 
         binding.btnDate.setOnClickListener(this)
 
+        showLoading()
+
         showDataSpinner()
 
         getDataKota()
 
+        hideLoading()
+
         onAction()
+
 
     }
 
@@ -87,7 +91,6 @@ class JadwalSholatActivity : AppCompatActivity(), View.OnClickListener,
 
     private fun getDataJadwal(id: Int?) {
         try {
-            showLoading()
             val idKota = id.toString()
             val tvDate = binding.tvDate.text.toString()
             val tanggal = tvDate.format(Date())
@@ -96,7 +99,6 @@ class JadwalSholatActivity : AppCompatActivity(), View.OnClickListener,
             val task = ClientAsyncTask(this, object : ClientAsyncTask.OnPostExecuteListener {
                 override fun onPostExecute(result: String) {
                     try {
-                        hideLoading()
                         val jsonObject = JSONObject(result)
                         val strJadwal = jsonObject.getJSONObject("jadwal")
                         val strData = strJadwal.getJSONObject("data")
