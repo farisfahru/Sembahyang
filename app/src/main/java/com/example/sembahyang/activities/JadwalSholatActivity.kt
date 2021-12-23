@@ -1,6 +1,5 @@
 package com.example.sembahyang.activities
 
-import android.app.ProgressDialog
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -23,7 +22,6 @@ class JadwalSholatActivity : AppCompatActivity(), View.OnClickListener,
     private lateinit var binding: ActivityJadwalSholatBinding
     private lateinit var listModelKota: MutableList<ModelKota>
     private lateinit var modelKotaAdapter: ArrayAdapter<ModelKota>
-    private lateinit var progressDialog: ProgressDialog
 
     companion object {
         private const val DATE_PICKER_TAG = "DatePicker"
@@ -39,20 +37,11 @@ class JadwalSholatActivity : AppCompatActivity(), View.OnClickListener,
 
         binding.btnDate.setOnClickListener(this)
 
-        progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("Mohon Tunggu")
-        progressDialog.setCancelable(false)
-        progressDialog.setMessage("Sedang menampilkan jadwal...")
-
-        //show data spinner
         showDataSpinner()
 
-        //get data kota
         getDataKota()
 
         onAction()
-
-        return
 
     }
 
@@ -80,7 +69,7 @@ class JadwalSholatActivity : AppCompatActivity(), View.OnClickListener,
         val spKota: Spinner = binding.spinCity
         listModelKota = ArrayList()
         modelKotaAdapter = ArrayAdapter(
-            getApplicationContext(),
+            applicationContext,
             android.R.layout.simple_spinner_item,
             listModelKota as ArrayList<ModelKota>
         )
@@ -98,7 +87,7 @@ class JadwalSholatActivity : AppCompatActivity(), View.OnClickListener,
 
     private fun getDataJadwal(id: Int?) {
         try {
-            progressDialog.show()
+            showLoading()
             val idKota = id.toString()
             val tvDate = binding.tvDate.text.toString()
             val tanggal = tvDate.format(Date())
@@ -107,7 +96,7 @@ class JadwalSholatActivity : AppCompatActivity(), View.OnClickListener,
             val task = ClientAsyncTask(this, object : ClientAsyncTask.OnPostExecuteListener {
                 override fun onPostExecute(result: String) {
                     try {
-                        progressDialog.dismiss()
+                        hideLoading()
                         val jsonObject = JSONObject(result)
                         val strJadwal = jsonObject.getJSONObject("jadwal")
                         val strData = strJadwal.getJSONObject("data")
@@ -162,6 +151,14 @@ class JadwalSholatActivity : AppCompatActivity(), View.OnClickListener,
                 finish()
             }
         }
+    }
+
+    private fun showLoading() {
+        binding.loadingProgress.show()
+    }
+
+    private fun hideLoading() {
+        binding.loadingProgress.hide()
     }
 
 }
