@@ -25,3 +25,11 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    espressoVersion = '3.4.0'
+    espressoCoreVersion = '3.4.0'
+    roboelectricVersion = '4.6'
+    mockitoKotlinVersion = '2.2.0'
+    androidCoreTestVersion = '2.1.0'
+}

@@ -17,7 +17,8 @@ import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 
-class JadwalSholatActivity : AppCompatActivity(), View.OnClickListener, DatePickerFragment.DialogDateListener {
+class JadwalSholatActivity : AppCompatActivity(), View.OnClickListener,
+    DatePickerFragment.DialogDateListener {
 
     private lateinit var binding: ActivityJadwalSholatBinding
     private lateinit var listModelKota: MutableList<ModelKota>
@@ -101,7 +102,8 @@ class JadwalSholatActivity : AppCompatActivity(), View.OnClickListener, DatePick
             val idKota = id.toString()
             val tvDate = binding.tvDate.text.toString()
             val tanggal = tvDate.format(Date())
-            val url = "https://api.banghasan.com/sholat/format/json/jadwal/kota/$idKota/tanggal/$tanggal"
+            val url =
+                "https://api.banghasan.com/sholat/format/json/jadwal/kota/$idKota/tanggal/$tanggal"
             val task = ClientAsyncTask(this, object : ClientAsyncTask.OnPostExecuteListener {
                 override fun onPostExecute(result: String) {
                     try {

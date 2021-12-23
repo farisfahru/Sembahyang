@@ -28,6 +28,11 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this@MainActivity, AlquranActivity::class.java)
                 startActivity(intent)
             }
+
+            binding.cvDoa.setOnClickListener {
+                val intent = Intent(this@MainActivity, DoaActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 }

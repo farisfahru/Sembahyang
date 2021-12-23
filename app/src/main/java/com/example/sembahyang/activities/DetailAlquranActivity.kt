@@ -63,7 +63,8 @@ class DetailAlquranActivity : AppCompatActivity() {
                             tvSurah.text = surah.nama_latin
                             tvArti.text = surah.arti
                             tvTurun.text = surah.tempat_turun
-                            tvJumlahAyat.text = (resources.getString(R.string.jumlah_ayat, surah.jumlah_ayat))
+                            tvJumlahAyat.text =
+                                (resources.getString(R.string.jumlah_ayat, surah.jumlah_ayat))
                             header.visibility = View.VISIBLE
                             detailAlquranAdapter.ayat = dataAyat
                             rvSurah.adapter = detailAlquranAdapter
