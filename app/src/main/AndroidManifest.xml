@@ -7,9 +7,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_sembahyang"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_sembahyang_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sembahyang"
         tools:ignore="AllowBackup">
@@ -22,12 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.DoaActivity"/>
+        <activity android:name=".activities.DoaActivity" />
         <activity android:name=".activities.DetailAlquranActivity" />
         <activity android:name=".activities.AlquranActivity" />
-        <activity android:name=".activities.JadwalSholatActivity"/>
-        <activity android:name=".activities.MainActivity"/>
-
+        <activity android:name=".activities.JadwalSholatActivity" />
+        <activity android:name=".activities.MainActivity" />
     </application>
 
 </manifest>
