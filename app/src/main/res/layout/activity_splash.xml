@@ -17,6 +17,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_sembahyang" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center"
+        android:letterSpacing="0.10"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/vegas_gold"
+        android:textSize="30sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
+
     <ProgressBar
         android:id="@+id/progressBar"
         style="@android:style/Widget.Holo.ProgressBar"
@@ -25,7 +41,7 @@
         android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
+        app:layout_constraintTop_toBottomOf="@id/textView3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
