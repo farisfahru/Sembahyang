@@ -2,6 +2,7 @@ package com.example.sembahyang.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -60,9 +61,43 @@ class DoaActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
             btnBack.setOnClickListener {
                 finish()
             }
+
+            searchView.setOnSearchClickListener {
+                tvTitle.gone()
+                btnBack.gone()
+                searchView.maxWidth
+            }
+
+
+
+            searchView.setOnCloseListener {
+                tvTitle.visible()
+                btnBack.gone()
+                false
+            }
+
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    doaAdapter.filter.filter(query)
+                    return false
+                }
+
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    doaAdapter.filter.filter(newText)
+                    return false
+                }
+            })
         }
     }
 
+    private fun View.gone() {
+        visibility = View.GONE
+    }
+
+    private fun View.visible() {
+        visibility = View.VISIBLE
+    }
 
     private fun showLoading() {
         binding.loadingProgress.show()
@@ -81,4 +116,5 @@ class DoaActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         doaAdapter.filter.filter(newText)
         return true
     }
+
 }
