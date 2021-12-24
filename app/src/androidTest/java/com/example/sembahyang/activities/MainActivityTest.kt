@@ -1,7 +1,8 @@
 package com.example.sembahyang.activities
 
 import androidx.recyclerview.widget.RecyclerView
-import androidx.test.espresso.Espresso
+
+import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
@@ -15,21 +16,20 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4ClassRunner::class)
 class MainActivityTest {
-    private val surah= "Al-Fatihah"
+    private val surah = "Al-Fatihah"
     private val tempatTurun = "mekah"
-    private val jumlah_ayat = "7 Ayat"
+    private val jumlahAyat = "7 Ayat"
     private val arti = "Pembukaan"
 
     @get:Rule
     var activityRule = ActivityScenarioRule(MainActivity::class.java)
 
 
-
     @Test
     fun loadSurah() {
-        Espresso.onView(withId(R.id.cv_alquran)).perform(click())
-        Espresso.onView(withId(R.id.rv_surah)).check(matches(isDisplayed()))
-        Espresso.onView(withId(R.id.rv_surah)).perform(
+        onView(withId(R.id.cv_alquran)).perform(click())
+        onView(withId(R.id.rv_surah)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_surah)).perform(
             RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
                 114
             )
@@ -37,37 +37,42 @@ class MainActivityTest {
     }
 
     @Test
-    fun searchData() {
-        Espresso.onView(withId(R.id.cv_alquran)).perform(click())
-        Espresso.onView(withId(R.id.search_view))
-            .perform(click() ,typeText(surah) ,closeSoftKeyboard())
-    }
-
-    @Test
     fun loadAyah() {
-        Espresso.onView(withId(R.id.cv_alquran)).perform(click())
-        Espresso.onView(withId(R.id.rv_surah)).perform(
+        onView(withId(R.id.cv_alquran)).perform(click())
+        onView(withId(R.id.rv_surah)).perform(
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
                 0,
                 click()
             )
         )
-        Espresso.onView(withId(R.id.tv_surah)).check(matches(withText(surah)))
-        Espresso.onView(withId(R.id.tv_arti)).check(matches(withText(arti)))
-        Espresso.onView(withId(R.id.tv_turun)).check(matches(withText(tempatTurun)))
-        Espresso.onView(withId(R.id.tv_arti)).check(matches(withText(arti)))
+        onView(withId(R.id.tv_surah)).check(matches(withText(surah)))
+        onView(withId(R.id.tv_arti)).check(matches(withText(arti)))
+        onView(withId(R.id.tv_jumlah_ayat)).check(matches(withText(jumlahAyat)))
+        onView(withId(R.id.tv_turun)).check(matches(withText(tempatTurun)))
+        onView(withId(R.id.tv_arti)).check(matches(withText(arti)))
 
     }
 
     @Test
     fun loadJadwal() {
-        Espresso.onView(withId(R.id.cv_jadwal_sholat)).perform(click())
-        Espresso.onView(checkNotNull(withId(R.id.tv_date)))
-        Espresso.onView(checkNotNull(withId(R.id.rl_spin)))
-        Espresso.onView(checkNotNull(withId(R.id.tv_subuh)))
-        Espresso.onView(checkNotNull(withId(R.id.tv_dzuhur)))
-        Espresso.onView(checkNotNull(withId(R.id.tv_ashar)))
-        Espresso.onView(checkNotNull(withId(R.id.tv_maghrib)))
-        Espresso.onView(checkNotNull(withId(R.id.tv_isya)))
+        onView(withId(R.id.cv_jadwal_sholat)).perform(click())
+        onView(checkNotNull(withId(R.id.tv_date)))
+        onView(checkNotNull(withId(R.id.rl_spin)))
+        onView(checkNotNull(withId(R.id.tv_subuh)))
+        onView(checkNotNull(withId(R.id.tv_dzuhur)))
+        onView(checkNotNull(withId(R.id.tv_ashar)))
+        onView(checkNotNull(withId(R.id.tv_maghrib)))
+        onView(checkNotNull(withId(R.id.tv_isya)))
+    }
+
+    @Test
+    fun loadDoa(){
+        onView(withId(R.id.cv_doa)).perform(click())
+        onView(withId(R.id.rv_doa)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_doa)).perform(
+            RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
+                37
+            )
+        )
     }
 }
