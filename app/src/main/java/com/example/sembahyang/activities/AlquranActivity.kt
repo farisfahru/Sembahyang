@@ -72,6 +72,7 @@ class AlquranActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
             searchView.setOnSearchClickListener {
                 tvTitle.gone()
+                btnBack.gone()
                 searchView.maxWidth
             }
 
@@ -79,6 +80,7 @@ class AlquranActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
             searchView.setOnCloseListener {
                 tvTitle.visible()
+                btnBack.visible()
                 false
             }
 
