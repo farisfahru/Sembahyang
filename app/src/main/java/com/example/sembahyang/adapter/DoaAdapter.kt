@@ -67,10 +67,6 @@ class DoaAdapter : RecyclerView.Adapter<DoaAdapter.ViewHolder>(), Filterable {
         doaFiltered = doaList
     }
 
-    fun onClick(listener: ((ModelDoa) -> Unit)?) {
-        this.listener = listener
-    }
-
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
