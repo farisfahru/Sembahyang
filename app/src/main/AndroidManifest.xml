@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.DoaActivity" />
+        <activity android:name=".activities.DoaActivity"/>
         <activity android:name=".activities.DetailAlquranActivity" />
         <activity android:name=".activities.AlquranActivity" />
         <activity android:name=".activities.JadwalSholatActivity"/>
