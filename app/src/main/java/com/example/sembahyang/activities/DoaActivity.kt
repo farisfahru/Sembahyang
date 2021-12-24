@@ -37,6 +37,8 @@ class DoaActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
         getDataDoa()
 
+        onAction()
+
     }
 
     private fun getDataDoa() {
@@ -49,6 +51,14 @@ class DoaActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                 doaAdapter.notifyDataSetChanged()
                 binding.rvDoa.adapter = doaAdapter
                 hideLoading()
+            }
+        }
+    }
+
+    private fun onAction() {
+        with(binding) {
+            btnBack.setOnClickListener {
+                finish()
             }
         }
     }
